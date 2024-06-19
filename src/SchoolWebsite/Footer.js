@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -36,9 +37,9 @@ function Footer() {
           <div className="text-lg font-serif flex mr-14 flex-col">
             <p className="font-semibold text-gray-800 dark:text-white mb-4">Quick Links</p>
             <div className="flex flex-col space-y-2">
-              <a href="/" onClick={scrollToTop} className="text-black dark:text-gray-300 transition-colors duration-300 hover:underline hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">Home</a>
-              <a href="/aboutuspage" onClick={scrollToTop} className="text-black dark:text-gray-300 transition-colors duration-300 hover:underline hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">About Us</a>
-              <a href="/admission" onClick={scrollToTop} className="text-black dark:text-gray-300 transition-colors duration-300 hover:underline hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">Admission Process</a>
+              <Link to="/" onClick={scrollToTop} className="text-black dark:text-gray-300 transition-colors duration-300 hover:underline hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">Home</Link >
+              <Link to="/aboutuspage" onClick={scrollToTop} className="text-black dark:text-gray-300 transition-colors duration-300 hover:underline hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">About Us</Link >
+              <Link to="/admission" onClick={scrollToTop} className="text-black dark:text-gray-300 transition-colors duration-300 hover:underline hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">Admission Process</Link >
             </div>
           </div>
           {/* Visit Us */}
@@ -67,7 +68,7 @@ function Footer() {
       <hr className="my-6 border-gray-200 dark:border-gray-700" />
       {/* Copyright */}
       <div className="bg-[#3f3338] h-16 flex items-center justify-center">
-        <p className="font-sans text-[#FFF6E7] text-center text-md">© {new Date().getFullYear()} Your Company Inc. All rights reserved.</p>
+        <p className="font-sans text-[#FFF6E7] text-center text-md">© {new Date().getFullYear()}  Prabhuram Gurukul . All rights reserved.</p>
       </div>
     </footer>
   );

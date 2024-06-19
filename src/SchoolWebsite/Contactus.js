@@ -38,7 +38,7 @@ export default function Contactus() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost/www.prabhuramgurukul.com/contact.php',
+        'http://prabhuramgurukul/contact.php',
         formData,
         {
           headers: {
@@ -74,7 +74,7 @@ export default function Contactus() {
           loading="lazy"
         ></iframe>
       </div>
-      <div className="container justify-center px-6 md:px-12 lg:max-w-6xl">
+      <div className="container justify-center px-6 md:px-12 lg:max-w-6xl bg">
         <div className="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
           {submissionStatus === 'success' && (
             <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6" role="alert">
@@ -86,8 +86,8 @@ export default function Contactus() {
               <p>There was an error submitting the form!</p>
             </div>
           )}
-          <div className="bg-black flex flex-col">
-            <h1 className='uppercase md:text-3xl text-2xl text-center font-serif font-bold text-white mb-10'>Contact Us</h1>
+          <div className=" flex flex-col">
+            <h1 className='uppercase md:text-3xl text-2xl text-center font-serif font-bold text-gray-900 mb-10'>Contact Us</h1>
             <div className="flex flex-wrap">
               <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
                 <form onSubmit={handleSubmit}>
@@ -137,7 +137,7 @@ export default function Contactus() {
                   </div>
                   <button
                     type="submit"
-                    className="mb-6 w-full rounded bg-sky-500 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal lg:mb-0"
+                    className="mb-6 w-full rounded bg-sky-500 text-black px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal lg:mb-0"
                   >
                     Send
                   </button>
@@ -146,8 +146,9 @@ export default function Contactus() {
               <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
                 <div className="flex flex-wrap">
                   <div className="flex items-center mb-6">
-                    <div className='bg-black'>
-                      <p className="pl-14 text-left text-white dark:text-gray-300 align-middle flex justify-end text-lg font-sans">
+                    <div className=''>
+                    <h6 className="text-xl font-semibold pr-56 pb-3 pl-8 ">Address :</h6>
+                      <p className="pl-14 text-left text-gray-700 dark:text-gray-300 align-middle flex justify-end text-lg font-sans">
                         PRABHURAM GURUKUL<br />
                         B/2, Sai Darshan Row Bungalow,<br />
                         Prashant Nagar, Near Vakratund Hospital,<br />
@@ -156,11 +157,11 @@ export default function Contactus() {
                     </div>
                   </div>
                   <div className="flex items-center mb-6">
-                    <div className='mb-10 text-white pl-14'>
-                      <h6 className="text-xl font-semibold pr-56 mb-0">Phone</h6>
-                      <p className="text-white dark:text-gray-300 pr-40 text-lg font-sans">+91 8408863840</p>
-                      <p className="text-white dark:text-gray-300 pr-40 text-lg font-sans">+91 840894840</p>
-                      <p className="text-white dark:text-gray-300 pr-40 text-lg font-sans">+91 8007132800</p>
+                    <div className='mb-10 text-gray-700 pl-14'>
+                      <h6 className="text-xl font-semibold pr-56 mb-0 pb-3 ">Phone :</h6>
+                      <p className="text-gray-700 dark:text-gray-300 pr-40 text-lg font-sans">+91 8408863840</p>
+                      <p className="text-gray-700 dark:text-gray-300 pr-40 text-lg font-sans">+91 840894840</p>
+                      <p className="text-gray-700 dark:text-gray-300 pr-40 text-lg font-sans">+91 8007132800</p>
                     </div>
                   </div>
                   {/* Add more contact details here if needed */}

@@ -1,7 +1,11 @@
+
 import React, { useState } from 'react';
 import axios from 'axios'; // Import Axios
 import Result from 'postcss/lib/result';
-
+import backgroundImage from './GurukulBg3.jpg';
+import '../index.css'
+import { motion } from 'framer-motion';
+ 
 const HeroSection = () => {
   const initialFormData = {
     name: '',
@@ -10,10 +14,10 @@ const HeroSection = () => {
     standard: '',
     gender: '',
   };
-
+ 
   const [formData, setFormData] = useState(initialFormData);
   const [submissionStatus, setSubmissionStatus] = useState(null); // State to handle submission status
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -21,16 +25,16 @@ const HeroSection = () => {
       [name]: value,
     }));
   };
-
+ 
   const handleSubmit = async (e) => {
     console.log("Called Sucessfully ",formData)
     e.preventDefault();
     try {
-      const response = await axios.post('http://test2/', formData); // Make POST request with Axios
+      const response = await axios.post('http://prabhuramgurukul/enquiry.php', formData); 
       console.log('Response:', response.data);
       if (response.data === "SUCCESS") {
         setSubmissionStatus('success');
-        setFormData(initialFormData); // Reset form data after successful submission
+        setFormData(initialFormData); 
       } else {
         setSubmissionStatus('error');
       }
@@ -39,16 +43,33 @@ const HeroSection = () => {
       setSubmissionStatus('error');
     }
   };
-
+ 
   return (
-    <div className="bg-cover bg-center min-h-screen flex items-center" style={{ backgroundImage: "url('https://cdn.pixabay.com/photo/2013/09/11/02/02/bloch-school-of-management-181093_640.jpg')" }}>
-      <form onSubmit={handleSubmit} className="container max-w-sm mx-auto p-8 bg-sky-950 rounded-lg shadow-lg mr-10" data-aos="fade-up">
-        <h1 className="text-3xl font-serif text-white font-bold mb-6">ADMISSION ENQUIRY FOR THE SESSION 2024-25</h1>
+    <>
+    
+    <div
+      className="bg-cover bg-center min-h-screen flex items-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+         <div className='invisible lg:mt-96 lg:pl-5 lg:visible'>
+      <motion.h1
+        className='invisible md:text-7xl font-serif font-bold mr-5 gradient-text lg:visible'
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        Prabhuram Gurukul
+      </motion.h1>
+    </div>
+   
+    
+      <form onSubmit={handleSubmit} className="container max-w-sm mx-auto p-8 bg-sky-950 rounded-lg shadow-lg mr-10 mb-20" data-aos="fade-left">
+        <h1 className="text-xl font-serif text-white font-bold mb-6">ADMISSION ENQUIRY FOR THE SESSION 2024-25</h1>
         <div className='text-left'>
           <div className="mb-4">
-            <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="name">
+            {/* <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="name">
               Name
-            </label>
+            </label> */}
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
@@ -63,9 +84,9 @@ const HeroSection = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="email">
+            {/* <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="email">
               Email
-            </label>
+            </label> */}
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
@@ -80,9 +101,7 @@ const HeroSection = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="mobileNumber">
-              Mobile Number
-            </label>
+            
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="mobileNumber"
@@ -91,15 +110,13 @@ const HeroSection = () => {
               name="mobileNumber"
               value={formData.mobileNumber}
               onChange={handleChange}
-              pattern="[0-9]{10}" // Mobile number pattern
+              pattern="[0-9]{10}" 
               required
               title="Please enter a 10-digit mobile number."
             />
           </div>
           <div className="mb-6">
-            <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="gender">
-              Gender
-            </label>
+           
             <select
               id="gender"
               name="gender"
@@ -111,13 +128,13 @@ const HeroSection = () => {
               <option value="">Select gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
-              <option value="other">Other</option>
+              {/* <option value="other">Other</option> */}
             </select>
           </div>
           <div className="mb-6">
-            <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="standard">
+            {/* <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="standard">
               Standard
-            </label>
+            </label> */}
             <select
               id="standard"
               name="standard"
@@ -129,19 +146,9 @@ const HeroSection = () => {
               <option value="">Select standard</option>
               <option value="playgroup">Playgroup</option>
               <option value="nursery">Nursery</option>
-              <option value="1st">Lkg</option>
-              <option value="2nd">Ukg</option>
-              <option value="1st">1st</option>
-              <option value="2nd">2nd</option>
-              <option value="3rd">3rd</option>
-              <option value="4th">4th</option>
-              <option value="5th">5th</option>
-              <option value="6th">6th</option>
-              <option value="7th">7th</option>
-              <option value="8th">8th</option>
-              <option value="9th">9th</option>
-              <option value="10th">10th</option>
-              
+              <option value="LKG">Lkg</option>
+              <option value="UKG">Ukg</option>
+            
             </select>
           </div>
           <div className="flex items-center justify-between">
@@ -168,7 +175,9 @@ const HeroSection = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
-
+ 
 export default HeroSection;
+ 

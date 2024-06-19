@@ -4,14 +4,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const photos = [
-  { src: require('./S7.jpg') },
-  { src: require('./S2.jpg') },
-  { src: require('./S3.jpg') },
-  { src: require('./S4.jpg') },
-  { src: require('./S5.jpg') },
-  { src: require('./S8.jpg') },
-  { src: require('./S7.jpg') },
-  { src: require('./S1.jpg') },
+  { src: require('./GalleryImages/S7.jpg') },
+  { src: require('./GalleryImages/S2.jpg') },
+  { src: require('./GalleryImages/S3.jpg') },
+  { src: require('./GalleryImages/S4.jpg') },
+  { src: require('./GalleryImages/S5.jpg') },
+  { src: require('./GalleryImages/S8.jpg') },
+  { src: require('./GalleryImages/S7.jpg') },
+  { src: require('./GalleryImages/S1.jpg') },
  
 ]
 

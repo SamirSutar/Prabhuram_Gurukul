@@ -12,7 +12,7 @@ const Information = () => {
     standard: '',
     address: '',
     terms: false,
-    newField: '',
+   
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -31,7 +31,7 @@ const Information = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost/phpmyadmin/index.php?route=/&route=%2F&db=school&table=admission', formData);
+      const response = await axios.post('http://prabhuramgurukul/Admission.php', formData);
       console.log('Response:', response.data);
       if (response.data === "SUCCESS") {
         setSubmitted('success');
@@ -129,7 +129,7 @@ const Information = () => {
               <option value="">Select gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
-              <option value="other">Other</option>
+              {/* <option value="other">Other</option> */}
             </select>
           </div>
           {/* Blood Group */}
@@ -182,16 +182,9 @@ const Information = () => {
               <option value="">Select Standard</option>
               <option value="Playgroup">Playgroup</option>
               <option value="Nursery">Nursery</option>
-              <option value="1st">1st</option>
-              <option value="2nd">2nd</option>
-              <option value="3rd">3rd</option>
-              <option value="4th">4th</option>
-              <option value="5th">5th</option>
-              <option value="6th">6th</option>
-              <option value="7th">7th</option>
-              <option value="8th">8th</option>
-              <option value="9th">9th</option>
-              <option value="10th">10th</option>
+              <option value="UKG">UKG</option>
+              <option value="LKG">LKG</option>
+              
             </select>
           </div>
           {/* Address */}
@@ -210,20 +203,7 @@ const Information = () => {
             ></textarea>
           </div>
           {/* New Field */}
-          <div className="mb-4">
-            <label className="block text-white text-lg font-serif font-bold mb-2" htmlFor="newField">
-              New Field
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="newField"
-              type="text"
-              placeholder="New Field"
-              name="newField"
-              value={formData.newField}
-              onChange={handleChange}
-            />
-          </div>
+        
           {/* Terms and Conditions */}
           <div className="block text-white text-lg font-serif font-bold mb-2">
             <input
@@ -253,7 +233,7 @@ const Information = () => {
           </div>
           {/* Submission Confirmation */}
           {submitted && (
-            <div className={`bg-${submitted === 'success' ? 'green' : 'red'}-200 text-${submitted === 'success' ? 'green' : 'red'}-800 px-4 py-2 rounded-md mt-4 text-center`}>
+            <div className={`bg-${submitted === 'success' ? 'green' : 'red'}-200 text-${submitted === 'success' ? 'white' : 'black'}-800 px-4 py-2 rounded-md mt-4 text-center`}>
               {submitted === 'success' ? 'Form submitted successfully!' : 'There was an error submitting the form.'}
             </div>
           )}
@@ -261,12 +241,13 @@ const Information = () => {
       </div>
       {/* Additional content */}
       <div>
-        <div className="bg-slate-100 rounded-lg text-left shadow-lg p-6 mt-6">
+        <div className="bg-slate-100 rounded-lg text-left shadow-lg pl-6 mt-6 ">
           <h2 className="text-2xl font-semibold text-gray-800 font-serif mb-4">Eligibility</h2>
-          <p className="text-gray-700 mb-4">
-            Children Age Group 5 years to 7 years
-          </p>
+          <ul className="list-disc pl-6 text-gray-700">
+          <li> Children Age Group 2.5 years to 7 years</li>
+          </ul>
         </div>
+        
         <div className="bg-slate-100 rounded-lg text-left shadow-lg p-6 ">
           <h2 className="text-2xl font-semibold text-gray-800 font-serif mb-4">Documents for Submission</h2>
           <ul className="list-disc pl-6 text-gray-700">
@@ -275,7 +256,7 @@ const Information = () => {
             <li>Copy of Aadhar card</li>
             <li>Transfer certificate, progress sheet of the last examination taken</li>
             <li>Official copy of reports/marks card from previous school</li>
-            <li>Eight passport size photographs</li>
+            <li>Four passport size photographs</li>
           </ul>
         </div>
       </div>
